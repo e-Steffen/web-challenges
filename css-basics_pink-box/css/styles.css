@@ -1,0 +1,21 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui;
+}
+
+/* put a selector here to select div elements (see index.html) */
+div {
+  font-family: cursive;
+  padding: 8px;
+  height: 9.375rem;
+  width: 9.375rem;
+  background-color: hotpink;
+  color: white;
+  border-radius: 0.5rem;
+  text-align: center;
+}
