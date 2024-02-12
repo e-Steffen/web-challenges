@@ -14,23 +14,24 @@ body {
   background: #f3f5f9;
 }
 
-.prof-img {
+.profile {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
 }
 
 .profile__image {
   border-radius: 50%;
   max-width: 50%;
   height: auto;
+  align-self: center;
 }
 
 .tech-stack__list {
   list-style: none;
   padding-left: 0;
   display: flex;
-  flex-flow: row wrap; 
-  gap: .625rem;
+  flex-flow: row wrap;
+  gap: 0.625rem;
 }
 
 .tech-stack__list-item {
