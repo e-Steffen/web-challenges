@@ -1,5 +1,5 @@
 # Web Challenges
 
-In this repository you will share your challenges.
+In this repository I share the tasks I worked on as part of the neue-fische web-dev-course. 
 
-Please refer to the instructions in your course repository to know more about the workflow.
+
