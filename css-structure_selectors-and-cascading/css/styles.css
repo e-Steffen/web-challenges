@@ -76,7 +76,7 @@ main a {
 }
 
 /* 5. These styles should apply to the main navigation link corresponding to the current page */
-main a[href="/"] {
+.current {
   outline: 2px dashed red;
   color: #22e781;
 }
@@ -88,7 +88,8 @@ footer a {
 }
 
 /* 7. These styles should apply to all paragraphs and all lists (please use a class selector) */
-.text, .list {
+.text,
+.list {
   outline: 2px dashed red;
   color: #2c3f3f;
 }
