@@ -20,7 +20,7 @@ body {
 }
 
 header {
-  background: rgb(37 38 41 / 100%);
+  background: var(--color-granite);
 }
 
 h1 {
