@@ -21,15 +21,9 @@ const numberOfHotdogs = 4;
 
 if (numberOfHotdogs < 5) {
   console.log("2 euro per hotdog");
-} else if (
-  numberOfHotdogs == 5 ||
-  (numberOfHotdogs > 5 && numberOfHotdogs < 100)
-) {
+} else if (numberOfHotdogs < 100) {
   console.log("1.50 euro per hotdog");
-} else if (
-  numberOfHotdogs == 100 ||
-  (numberOfHotdogs > 100 && numberOfHotdogs < 1000000)
-) {
+} else if (numberOfHotdogs < 1000000) {
   console.log("1 euro per hotdog");
 } else console.log("0.10 euro per hotdog");
 
@@ -44,7 +38,7 @@ const statement =
 console.log(statement);
 
 // Part 5: Greeting
-const name = "Steffen";
+const name = "Roland";
 
 const greeting = name == "Roland" ? "Hello Coach!" : `Hello ${name}!`;
 console.log(greeting);
