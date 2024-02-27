@@ -140,17 +140,9 @@ h1 {
   .medium-img {
     display: block;
   }
-
-  .large-img {
-    display: none;
-  }
 }
 
 @media screen and (min-width: 1200px) {
-  .small-img {
-    display: none;
-  }
-
   .medium-img {
     display: none;
   }
