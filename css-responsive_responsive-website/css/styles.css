@@ -238,10 +238,6 @@ fairly essential to completing this challenge. */
 
 /* ==[ MEDIA QUERIES & BREAKPOINTS ]== */
 
-/* Now it's your turn! Here we're using media queries to partially overwrite our
-CSS when certain conditions that we declare are met - such as a certain viewport 
-width, etc. */
-
 /* Media Query Tablet */
 
 @media screen and (min-width: 900px) {
@@ -267,8 +263,6 @@ width, etc. */
 
 @media screen and (min-width: 1200px) {
   .card-section {
-    flex-direction: row;
-    flex-wrap: wrap;
     justify-content: center;
   }
 
