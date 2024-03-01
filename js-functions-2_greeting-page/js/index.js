@@ -35,7 +35,7 @@ function getGreeting() {
 
 function getDayColor() {
   const day = new Date().getDay();
-  if (day == "1") {
+  if (day === 1) {
     return "darkgray";
   } else if (day > 1 && day < 6) {
     return "lightblue";
