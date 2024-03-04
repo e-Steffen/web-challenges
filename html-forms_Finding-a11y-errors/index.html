@@ -16,7 +16,7 @@
         Please let us know how we can support you with a11y issues.
       </p>
 
-      <form for="title">
+      <form aria-labelledby="title">
         <fieldset>
           <legend>Enter your information</legend>
           <label for="name-input" aria-labelledby="name-input">Name:</label>
@@ -27,7 +27,9 @@
             >Color you cannot see:</label
           >
           <input id="color-input" type="color" name="color" />
+          <label for="textarea">Leave your message here, please!</label>
           <textarea
+            id="textarea"
             rows="7"
             aria-describedby="description"
             placeholder="Leave us a message..."
