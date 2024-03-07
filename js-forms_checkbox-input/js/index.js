@@ -17,6 +17,8 @@ function hideSuccess() {
   success.setAttribute("hidden", "");
 }
 
+hideSuccess();
+
 function showSuccess() {
   success.removeAttribute("hidden");
 }
