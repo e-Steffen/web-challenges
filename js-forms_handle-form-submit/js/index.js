@@ -7,5 +7,6 @@ form.addEventListener("submit", (event) => {
   const formInputs = new FormData(event.target);
   const formData = Object.fromEntries(formInputs);
   console.log(formData);
+  event.target.reset();
   event.target.elements.firstName.focus();
 });
