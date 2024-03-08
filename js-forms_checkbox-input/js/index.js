@@ -24,7 +24,7 @@ function showSuccess() {
 }
 
 tosCheckbox.addEventListener("input", (event) => {
-  if (event.target.checked == true) {
+  if (event.target.checked === true) {
     hideTosError();
     showSuccess();
   } else {
@@ -39,7 +39,7 @@ form.addEventListener("submit", (event) => {
   // --v-- write your code here --v--
   // const formElements = ;
 
-  if (event.target.elements.tos.checked == false) {
+  if (event.target.elements.tos.checked === false) {
     showTosError();
   } else {
     hideTosError();
