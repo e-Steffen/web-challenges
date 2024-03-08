@@ -44,4 +44,5 @@ document.body.appendChild(secondProduct);
 const secondBuyButton = secondProduct.querySelector(".product__buy-button");
 secondBuyButton.addEventListener("click", () => {
   console.log(`You choose ${name} for ${price} only!`);
+  alert(`You choose ${name} for ${price} only!`);
 });
