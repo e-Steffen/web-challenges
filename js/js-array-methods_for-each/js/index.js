@@ -25,3 +25,11 @@ colors.forEach((color) => {
   newBoxes.style.backgroundColor = color;
   document.body.append(newBoxes);
 });
+
+const secondOptionToBuildTheBoxes = (color) => {
+  const newBoxes = document.createElement("div");
+  newBoxes.classList.add("color-box");
+  newBoxes.style.backgroundColor = color;
+  document.body.append(newBoxes);
+};
+colors.forEach(secondOptionToBuildTheBoxes);
