@@ -76,7 +76,7 @@ const allRecipesWithTitlesLongerThan12Characters = recipes.filter((recipe) => {
 });
 
 export {
-  onlyTitles,q
+  onlyTitles,
   titlesWithDuration,
   timePerServing,
   allTitlesInOneString,
