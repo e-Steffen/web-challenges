@@ -43,6 +43,7 @@ const allCardsWithTagsHTMLOrJSThatAreBookmarked = cards.filter((card) => {
 });
 console.log(allCardsWithTagsHTMLOrJSThatAreBookmarked);
 
+
 export {
   onlyCardWithIdTwo,
   allCardsWith3Tags,
