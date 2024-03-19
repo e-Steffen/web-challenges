@@ -47,18 +47,43 @@ console.log(indexOfGiraffe);
 // Hint: There is no need to upper-/lowercase the strings before sorting them.
 // Hint: sort() mutates the original array, which is bad.
 // -> Use animals.slice().sort(...) to make a copy.
-const animalsSortedAlphabetically = null;
+const animalsSortedAlphabetically = animalStrings.slice().sort((a, b) => {
+  if (a < b) {
+    return -1;
+  } else if (a > b) {
+    return 1;
+  }
+  return 0;
+});
+
+console.log(animalsSortedAlphabetically);
 
 // Hint: Guess what? There is a string method called `endsWith()`.
-const anyAnimalEndsWithLetterZ = null;
+const anyAnimalEndsWithLetterZ = animalStrings.includes((lastLetter) =>
+  lastLetter.endsWith("Z")
+);
+console.log(anyAnimalEndsWithLetterZ); // false
 
-const everyAnimalHasMoreThanTwoLetters = null;
+const everyAnimalHasMoreThanTwoLetters = animalStrings.every(
+  (animal) => animal.length > 2
+);
+console.log(everyAnimalHasMoreThanTwoLetters); // true
+
+const everyAnimalHasMoreThanFiveLetters = animalStrings.filter(
+  (animal) => animal.length > 2
+);
+console.log(everyAnimalHasMoreThanFiveLetters); // Array(18) [ "cat", "dog", "elephant", "rabbit", "lion", "tiger", "horse", "giraffe", "zebra", "penguin", … ]
 
 // Hint: There are several ways to go here. Let's focus on two options:
 // Option 1: Concatenate all characters with `reduce()` and check for the `length` property of the result.
 // Option 2: Use `map()` to create an array with the length values of all strings,
 // 				then sum them up with `reduce()` (keyword: method chaining)
-const sumOfAllAnimalCharacters = null;
+const sumOfAllAnimalCharacters = animalStrings.reduce(
+  (a, b) => a + b.length,
+  0
+);
+
+console.log(sumOfAllAnimalCharacters);
 
 export {
   hippoExists,
