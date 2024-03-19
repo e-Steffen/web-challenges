@@ -27,8 +27,11 @@ function findByCitySubString(employees, string) {
 // AND that is older than a specific age
 
 function findByProfessionSubStringAndAge(employees, string, age) {
+  // da "age" ein String ist, diesen zwecks sauberem Code zur number machen
+  const numericAge = Number(age);
   return employees.find(
-    (employee) => employee.profession.includes(string) && employee.age > age
+    (employee) =>
+      employee.profession.includes(string) && employee.age > numericAge
   );
 }
 
