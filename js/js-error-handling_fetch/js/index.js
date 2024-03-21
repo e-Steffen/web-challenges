@@ -7,13 +7,13 @@ async function getUser(url) {
   try {
     const response = await fetch(url);
     if (!response.ok) {
-      throw new error("Fetch doesn't work, please inspect the URLs!");
+      throw new Error("Fetch doesn't work, please inspect the URLs!");
     }
     const json = await response.json();
     errorMesaage.innerText = "";
     return json.data;
   } catch (error) {
-    errorMesaage.innerText = "Fetch doesn't work, please inspect the URLs!";
+    errorMesaage.innerText = error.message;
     userElement.innerHTML = "";
   }
 }
