@@ -4,24 +4,26 @@ const userElement = document.querySelector(".user");
 const errorMesaage = document.querySelector(".error");
 
 async function getUser(url) {
-  const response = await fetch(url);
-  const json = await response.json();
-  return json.data;
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new error("Fetch doesn't work, please inspect the URLs!");
+    }
+    const json = await response.json();
+    errorMesaage.innerText = "";
+    return json.data;
+  } catch (error) {
+    errorMesaage.innerText = "Fetch doesn't work, please inspect the URLs!";
+    userElement.innerHTML = "";
+  }
 }
 
 document.querySelectorAll("button[data-url]").forEach((button) =>
   button.addEventListener("click", async (event) => {
-    try {
-      errorMesaage.innerText = "";
-      const user = await getUser(event.target.dataset.url);
-      userElement.innerHTML = `
+    const user = await getUser(event.target.dataset.url);
+    userElement.innerHTML = `
       <h2>${user.first_name} ${user.last_name}</h2>
       <img alt="${user.first_name} ${user.last_name}" src="${user.avatar}"/>
       `;
-    } catch (error) {
-      errorMesaage.innerText =
-        "Soemthing doesn't working with the fetch, please inspect the URLs";
-      userElement.innerHTML = "";
-    }
   })
 );
