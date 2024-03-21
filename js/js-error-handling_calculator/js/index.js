@@ -22,11 +22,11 @@ form.addEventListener("submit", (event) => {
   const secondNumber = Number(event.target.secondNumber.value);
   const operation = event.target.operation.value;
   try {
-    errorMessage.innerHTML = "";
+    errorMessage.innerText = "";
     const result = operations[operation](firstNumber, secondNumber);
     output.innerText = result;
   } catch (error) {
-    errorMessage.innerHTML =
+    errorMessage.innerText =
       "Please pass a number rather than 0 as divisor, thank you!";
     output.innerText = "";
   }
