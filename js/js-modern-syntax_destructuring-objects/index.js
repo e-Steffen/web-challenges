@@ -46,5 +46,4 @@ const person = {
   firstName: "Alex",
 };
 
-export const { lastName: personLastName, ...allFurtherInfos } = person;
-export const moreInformation = { ...allFurtherInfos };
+export const { lastName: personLastName, ...moreInformation } = person;
