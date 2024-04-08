@@ -1,15 +1,16 @@
 const grabPeopleNo = document.querySelector('[data-js="peopleNo"]');
 const fetchButton = document.querySelector('[data-js="buttonToFetch"]');
 const fetchButtonISS = document.querySelector('[data-js="filterISS"]');
-const fetchButtonTiangong = document.querySelector('[data-js="filterTiangong"]');
+const fetchButtonTiangong = document.querySelector(
+  '[data-js="filterTiangong"]'
+);
 
-// async function fetchAB() {
-//   const response = await fetch("http://api.open-notify.org/astros.json");
-//   const data = await response.json();
-//   return data;
-// }
+async function fetchAB() {
+  const response = await fetch("http://api.open-notify.org/astros.json");
+  const data = await response.json();
+  return data; 
+}
 
-// console.log("HIER: ", await fetchAB());
 
 fetchButton.addEventListener("click", async () => {
   try {
