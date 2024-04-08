@@ -1,0 +1,16 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: hsl(34, 16%, 52%);
+  align-items: center;
+}
+
+h1 {
+  color: beige);
+}
