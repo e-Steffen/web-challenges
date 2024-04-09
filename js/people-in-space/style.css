@@ -12,5 +12,12 @@ body {
 }
 
 h1 {
-  color: beige);
+  color: black;
+}
+
+.button {
+  cursor: pointer;
+}
+.button:hover {
+  color: hsl(34, 16%, 52%);
 }
