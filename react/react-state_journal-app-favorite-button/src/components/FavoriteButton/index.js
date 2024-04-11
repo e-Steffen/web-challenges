@@ -12,7 +12,7 @@ export default function FavoriteButton() {
     <button
       className="favorite-button"
       onClick={() => {
-        setIsFavorite(true);
+        setIsFavorite(!isFavorite);
         // console.log("favorite button clicked");
       }}
       aria-label="favorite"
