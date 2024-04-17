@@ -23,15 +23,17 @@ export default function PokemonList() {
 
   return (
     <main>
-      <button
-        type="button"
-        className={page === 0 ? "Button__Hide" : ""}
-        onClick={() => {
-          setPage(page - 20);
-        }}
-      >
-        Previous Page
-      </button>
+      {page !== 0 && (
+        <button
+          type="button"
+          // className={page === 0 ? "Button__Hide" : ""}
+          onClick={() => {
+            setPage(page - 20);
+          }}
+        >
+          Previous Page
+        </button>
+      )}
       <button
         type="button"
         onClick={() => {
