@@ -1,5 +1,5 @@
 import "./EntriesSection.css";
-import Divider from "../Divider/index.js";
+import Divider from "../Divider";
 import Entry from "../Entry";
 import Tabs from "../Tabs";
 import Tab from "../Tab";
