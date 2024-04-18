@@ -1,5 +1,4 @@
 import { D6Button } from "./components/D6Button";
-import { useState } from "react";
 import { getD6Roll } from "./utils";
 import History from "./components/History";
 import "./styles.css";

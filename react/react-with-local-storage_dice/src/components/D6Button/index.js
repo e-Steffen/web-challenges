@@ -1,5 +1,4 @@
 import D6 from "../D6";
-import App from "../../App";
 import "./D6Button.css";
 
 export function D6Button({ onRoll, value }) {
