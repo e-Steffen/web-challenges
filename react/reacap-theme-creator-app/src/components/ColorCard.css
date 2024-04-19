@@ -1,0 +1,26 @@
+.color-card {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 0.7rem;
+  margin: 0 1rem 1.5rem 1rem;
+}
+
+.info {
+  text-align: center;
+  background-color: #9fa8bc;
+  border-radius: 1.25rem 0 0 1.25rem;
+}
+
+.color-role {
+  font-size: 1.5rem;
+
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.color-hex {
+  font-size: .9rem;
+  
+}
+
+.show-color {
+  border-radius: 0 1.25rem 1.25rem 0;
+}
