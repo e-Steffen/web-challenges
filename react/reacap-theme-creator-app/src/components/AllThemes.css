@@ -1,0 +1,13 @@
+.theme-overview {
+  display: flex;
+  padding-top: 1rem;
+  justify-content: center;
+}
+
+.view-toggle {
+  display: flex;
+  justify-content: start;
+  font-size: 1.1rem;
+  background-color: transparent;
+  border: 0px;
+}

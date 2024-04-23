@@ -1,7 +1,7 @@
 .color-card {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: 0.7rem;
+  gap: 0.5rem;
   margin: 0 1rem 1.5rem 1rem;
 }
 
@@ -12,13 +12,11 @@
 }
 
 .color-role {
-  font-size: 1.5rem;
-
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 1.2rem;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 .color-hex {
-  font-size: .9rem;
-  
+  font-size: 0.9rem;
 }
 
 .show-color {
