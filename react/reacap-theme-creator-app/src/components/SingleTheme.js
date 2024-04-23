@@ -3,7 +3,7 @@ import "./SingleTheme.css";
 
 export default function SingleTheme({ theme }) {
   return (
-    <article className="detail-view">
+    <article className="theme-detail-view">
       {/* <h2>{theme.name}</h2> */}
       {theme.colors.map((color) => (
         <ColorCard key={color.value} colorExample={color} />
