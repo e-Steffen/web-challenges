@@ -1,11 +1,11 @@
-h2 {
+/* h2 {
   width: 8rem;
   font-size: 1rem;
-}
+} */
 
-.preview {
+.theme-preview {
   gap: 0.7rem;
-  display: inline-flex;
+  display: flex;
   justify-content: space-evenly;
   width: 80%;
 }
