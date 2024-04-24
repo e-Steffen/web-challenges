@@ -1,13 +1,14 @@
 import ColorCard from "./ColorCard";
-import "./SingleTheme.css";
+import "./ThemeDetail.css";
 
-export default function SingleTheme({ theme }) {
+export default function ThemeDetail({ theme }) {
   return (
     <article className="theme-detail-view">
       {/* <h2>{theme.name}</h2> */}
       {theme.colors.map((color) => (
         <ColorCard key={color.value} colorExample={color} />
       ))}
+      
     </article>
   );
 }

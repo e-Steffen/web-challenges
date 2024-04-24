@@ -19,6 +19,10 @@ export default function App() {
     ]);
   }
 
+  function handleDeleteTheme(id) {
+    setThemes(themes.filter((theme) => theme.id !== id));
+  }
+
   return (
     <div className="Theme-Creator-App">
       <header className="App-header">
@@ -26,8 +30,17 @@ export default function App() {
       </header>
       <main className="theme-selection">
         <NewThemeForm onAddTheme={handleAddTheme} />
+
         {themes.map((theme) => (
-          <AllThemes key={theme.id} theme={theme} name={theme.name} />
+          <section key={theme.id}>
+            {" "}
+            <AllThemes
+              key={theme.id}
+              theme={theme}
+              name={theme.name}
+              onDeleteTheme={() => handleDeleteTheme(theme.id)}
+            />
+          </section>
         ))}
       </main>
     </div>
