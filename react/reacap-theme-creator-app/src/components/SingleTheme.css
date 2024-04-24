@@ -1,6 +1,0 @@
-.theme-detail-view {
-  display: grid;
-  width: 80%;
-  grid-template-columns: 1fr, 2fr;
-  gap: 0.3rem;
-}

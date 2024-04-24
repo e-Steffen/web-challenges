@@ -53,9 +53,9 @@ export default function NewThemeForm({ onAddTheme }) {
       </label>
       <input
         className="theme-form__name-inputfield"
+        type="text"
         required
-        id="newThemeName"
-        name="newThemeName"
+        name="name"
         placeholder="If you like to add it, name it!"
       />
       <fieldset className="theme-form__color-preview">
