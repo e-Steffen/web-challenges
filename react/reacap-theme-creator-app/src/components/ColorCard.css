@@ -11,6 +11,11 @@
   border-radius: 1.25rem 0 0 1.25rem;
 }
 
+.api-color-name {
+  font-weight: 600;
+  text-decoration: underline overline;
+}
+
 .color-role {
   font-size: 1.2rem;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
