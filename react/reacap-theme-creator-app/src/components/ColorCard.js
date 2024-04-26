@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./ColorCard.css";
 
 export default function ColorCard({ colorExample }) {
   const [colorFromApi, setColorFromApi] = useState("");
-
   useEffect(() => {
     async function loadColorFromApi() {
       try {

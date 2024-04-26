@@ -12,7 +12,7 @@ export default function App() {
     defaultValue: initialThemes,
   });
 
-  function handleAddTheme(newTheme) {
+  async function handleAddTheme(newTheme) {
     setThemes([
       ...themes,
       {
@@ -20,6 +20,50 @@ export default function App() {
         ...newTheme,
       },
     ]);
+  }
+
+  async function loadColorNameFromApi(hex) {
+    const cleanHexValue = hex.replace("#", "");
+    const response = await fetch(
+      `https://www.thecolorapi.com/id?hex=${cleanHexValue}`
+    );
+    const data = await response.json();
+    return data.name.value;
+  }
+
+  async function handleEditTheme(themeUpdate, id) {
+    const colorNamePromises = themeUpdate.colors.map(async (color) => {
+      const name = await loadColorNameFromApi(color.value);
+
+      return {
+        ...color,
+        name,
+      };
+    });
+
+    const colorsWithNames = await Promise.all(colorNamePromises);
+
+    //   setThemes([
+    //     ...themes,
+    //     {
+    //       id: uuid(),
+    //       ...themeUpdate,
+    //     },
+    //   ]);
+
+    setThemes(
+      themes.map((theme) => {
+        if (theme.id !== id) {
+          return theme;
+        }
+
+        return {
+          id,
+          name: themeUpdate.name,
+          colors: colorsWithNames,
+        };
+      })
+    );
   }
 
   function handleDeleteTheme(id) {
@@ -42,6 +86,9 @@ export default function App() {
               theme={theme}
               name={theme.name}
               onDeleteTheme={() => handleDeleteTheme(theme.id)}
+              onEditTheme={(themeUpdate) =>
+                handleEditTheme(themeUpdate, theme.id)
+              }
             />
           </section>
         ))}

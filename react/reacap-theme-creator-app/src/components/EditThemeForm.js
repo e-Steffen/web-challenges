@@ -1,4 +1,4 @@
-import "./NewThemeForm.css";
+import "./EditThemeForm.css";
 
 const exampleTheme = {
   name: "",
@@ -10,54 +10,39 @@ const exampleTheme = {
   ],
 };
 
-export default function NewThemeForm({
-  onAddTheme,
+export default function EditThemeForm({
+  onApplyEditTheme,
   initialData = exampleTheme,
 }) {
-  function handleAddTheme(event) {
+  function handleEditTheme(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    onAddTheme(data);
     event.target.reset();
 
-    const newTheme = {
+    const themeUpdate = {
       id: data.id,
       name: data.name,
-      colors: [
-        {
-          role: "primary",
-          value: data.primary,
-        },
-        {
-          role: "secondary",
-          value: data.secondary,
-        },
-        {
-          role: "surface",
-          value: data.surface,
-        },
-        {
-          role: "surface-on",
-          value: data["surface-on"],
-        },
-      ],
+      colors: initialData.colors.map((color) => ({
+        role: color.role,
+        value: data[color.role],
+      })),
     };
 
-    onAddTheme(newTheme);
+    onApplyEditTheme(themeUpdate);
   }
 
   return (
-    <form onSubmit={handleAddTheme} className="theme-form">
+    <form onSubmit={handleEditTheme} className="theme-form">
       <label htmlFor="name" className="theme-form__label">
-        Add a awesome Theme!
+        Time for change? Change it!
       </label>
       <input
         className="theme-form__name-inputfield"
         type="text"
         required
         name="name"
-        placeholder="If you like to add it, name it!"
+        placeholder="Do you like to change the name of your theme?"
       />
       <fieldset className="theme-form__color-preview">
         {initialData.colors.map((exampleColor) => (
@@ -71,8 +56,12 @@ export default function NewThemeForm({
         ))}
       </fieldset>
 
-      <button type="submit" className="theme-form__submit-button">
-        Add a awesome Theme!
+      <button
+        type="submit"
+        title="edit Theme"
+        className="view-toggle, theme-form__edit-button"
+      >
+        Style refreshed? Apply changes!
       </button>
     </form>
   );

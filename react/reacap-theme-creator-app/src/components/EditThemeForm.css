@@ -54,6 +54,6 @@
   border-radius: 1.25rem;
   background-color: #c77cb7;
   cursor: pointer;
-  width: 80%;
-  justify-self: start;
+  width: 60%;
+  justify-self: center;
 }
