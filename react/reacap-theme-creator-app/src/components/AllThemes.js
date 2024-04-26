@@ -36,6 +36,15 @@ export default function AllThemes({ theme, onDeleteTheme, onEditTheme }) {
             Looks ugly? Delete it!
           </button>
 
+          <button
+            type="button"
+            title="try-out-button"
+            className="theme-form__try-out-button"
+            // onClick={() => onTryTheme(theme.id)}
+          >
+            try, try, try
+          </button>
+
           {editView ? (
             <>
               <EditThemeForm
@@ -44,6 +53,13 @@ export default function AllThemes({ theme, onDeleteTheme, onEditTheme }) {
                 }}
                 initialData={theme}
               />
+
+              <button
+                className="view-toggle, theme-form__edit-button"
+                onClick={toggleEditView}
+              >
+                Close Edit Mode
+              </button>
               {/* <button
                 type="submit"
                 title="edit Theme"

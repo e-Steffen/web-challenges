@@ -6,7 +6,7 @@
 .theme-form__label {
   font-size: 1.5rem;
   font-weight: 600;
-  text-align: center;
+  justify-self: center;
 }
 
 .theme-form__name-inputfield {

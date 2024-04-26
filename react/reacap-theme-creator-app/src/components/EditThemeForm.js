@@ -34,17 +34,17 @@ export default function EditThemeForm({
 
   return (
     <form onSubmit={handleEditTheme} className="theme-form">
-      <label htmlFor="name" className="theme-form__label">
+      <label htmlFor="name" className="edit-theme-form__label">
         Time for change? Change it!
       </label>
       <input
-        className="theme-form__name-inputfield"
+        className="theme-form__edit-name-inputfield"
         type="text"
         required
         name="name"
         placeholder="Do you like to change the name of your theme?"
       />
-      <fieldset className="theme-form__color-preview">
+      <fieldset className="edit-theme-form__color-preview">
         {initialData.colors.map((exampleColor) => (
           <input
             type="color"
@@ -59,7 +59,7 @@ export default function EditThemeForm({
       <button
         type="submit"
         title="edit Theme"
-        className="view-toggle, theme-form__edit-button"
+        className="view-toggle, theme-form__apply-changes-button"
       >
         Style refreshed? Apply changes!
       </button>
