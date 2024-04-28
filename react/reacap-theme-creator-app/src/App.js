@@ -4,6 +4,8 @@ import { themes } from "./db";
 import NewThemeForm from "./components/NewThemeForm";
 import useLocalStorageState from "use-local-storage-state";
 import { v4 as uuid } from "uuid";
+import { useState } from "react";
+import TryPreviewPage from "./components/TryPreviewPage";
 
 const initialThemes = themes;
 
@@ -70,6 +72,13 @@ export default function App() {
     setThemes(themes.filter((theme) => theme.id !== id));
   }
 
+  // async function handleTryTheme(id) {
+  //   setThemes(themes.filter((theme) => theme.id === id));
+  // }
+
+  const [PreviewThemeId, setPreviewThemeId] = useState(null);
+  const previewTheme = themes.find((theme) => theme.id === PreviewThemeId);
+
   return (
     <div className="Theme-Creator-App">
       <header className="App-header">
@@ -85,6 +94,7 @@ export default function App() {
               key={theme.id}
               theme={theme}
               name={theme.name}
+              onPreviewTheme={() => setPreviewThemeId(theme.id)}
               onDeleteTheme={() => handleDeleteTheme(theme.id)}
               onEditTheme={(themeUpdate) =>
                 handleEditTheme(themeUpdate, theme.id)
@@ -92,6 +102,13 @@ export default function App() {
             />
           </section>
         ))}
+
+        {PreviewThemeId !== null && (
+          <TryPreviewPage
+            theme={previewTheme}
+            onClose={() => setPreviewThemeId(null)}
+          />
+        )}
       </main>
     </div>
   );

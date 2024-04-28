@@ -6,7 +6,12 @@ import { IconChevronDown, IconChevronUp } from "@tabler/icons-react";
 import ThemeDetail from "./ThemeDetail.js";
 import EditThemeForm from "./EditThemeForm.js";
 
-export default function AllThemes({ theme, onDeleteTheme, onEditTheme }) {
+export default function AllThemes({
+  theme,
+  onDeleteTheme,
+  onEditTheme,
+  onPreviewTheme,
+}) {
   const [detailView, setDetailView] = useState(false);
 
   function toggleView() {
@@ -18,6 +23,13 @@ export default function AllThemes({ theme, onDeleteTheme, onEditTheme }) {
     setEditView(!editView);
   }
 
+  // const previewTheme = themes.map((theme) => theme.id === PreviewThemeId);
+
+  // const [PreviewThemeId, setPreviewThemeId] = useState(null);
+  // function toggleTryPreview() {
+  //   setPreviewThemeId(theme.id);
+  // }
+
   return (
     <article className="theme-overview">
       <button className="view-toggle" onClick={toggleView}>
@@ -28,6 +40,14 @@ export default function AllThemes({ theme, onDeleteTheme, onEditTheme }) {
         <div className="theme-detail-view">
           <ThemeDetail theme={theme} />
           <button
+            title="try-out-button"
+            className="theme-form__try-out-button"
+            onClick={onPreviewTheme}
+          >
+            Try, try, try
+          </button>
+
+          <button
             type="button"
             title="delete Theme"
             className="theme-form__delete-button"
@@ -36,14 +56,33 @@ export default function AllThemes({ theme, onDeleteTheme, onEditTheme }) {
             Looks ugly? Delete it!
           </button>
 
-          <button
-            type="button"
-            title="try-out-button"
-            className="theme-form__try-out-button"
-            // onClick={() => onTryTheme(theme.id)}
-          >
-            try, try, try
-          </button>
+          {/* {tryPreview ? (
+            <>
+              <TryPreviewPage
+              // onTryTheme={onTryTheme}
+              // {(tryTheme) => {
+              //   onTryTheme(tryTheme);
+              // }}
+              />
+
+              <button
+                className="view-toggle, theme-form__try-out-button"
+                onClick={onClose}
+              >
+                Close Preview
+              </button>
+            </>
+          ) : (
+            <button
+              type="button"
+              title="try-out-button"
+              className="theme-form__try-out-button"
+              onClick={onPreviewTheme}
+              // onClick={() => onTryTheme(theme.id)}
+            >
+              Try, try, try
+            </button>
+          )} */}
 
           {editView ? (
             <>
