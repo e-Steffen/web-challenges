@@ -6,7 +6,12 @@ import { IconChevronDown, IconChevronUp } from "@tabler/icons-react";
 import ThemeDetail from "./ThemeDetail.js";
 import EditThemeForm from "./EditThemeForm.js";
 
-export default function AllThemes({ theme, onDeleteTheme, onEditTheme }) {
+export default function AllThemes({
+  theme,
+  onDeleteTheme,
+  onEditTheme,
+  onPreviewTheme,
+}) {
   const [detailView, setDetailView] = useState(false);
 
   function toggleView() {
@@ -28,6 +33,14 @@ export default function AllThemes({ theme, onDeleteTheme, onEditTheme }) {
         <div className="theme-detail-view">
           <ThemeDetail theme={theme} />
           <button
+            title="try-out-button"
+            className="theme-form__try-out-button"
+            onClick={onPreviewTheme}
+          >
+            Try, try, try
+          </button>
+
+          <button
             type="button"
             title="delete Theme"
             className="theme-form__delete-button"
@@ -44,14 +57,13 @@ export default function AllThemes({ theme, onDeleteTheme, onEditTheme }) {
                 }}
                 initialData={theme}
               />
-              {/* <button
-                type="submit"
-                title="edit Theme"
+
+              <button
                 className="view-toggle, theme-form__edit-button"
-                onClick={() => onEditTheme(theme.id)}
+                onClick={toggleEditView}
               >
-                Style refreshed? Apply changes!
-              </button> */}
+                Close Edit Mode
+              </button>
             </>
           ) : (
             <button

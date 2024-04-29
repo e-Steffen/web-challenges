@@ -3,25 +3,27 @@
   gap: 0.8rem;
 }
 
-.theme-form__label {
+.edit-theme-form__label {
   font-size: 1.5rem;
   font-weight: 600;
   text-align: center;
+  width: 80%;
 }
 
-.theme-form__name-inputfield {
+.theme-form__edit-name-inputfield {
   padding: 0.5rem;
   font-size: 1.125rem;
   border-radius: 1.25rem;
   width: 75%;
-  justify-self: center;
 }
 
-.theme-form__color-preview {
+.edit-theme-form__color-preview {
   display: grid;
   gap: 0.5rem;
   grid-template-columns: repeat(4, 1fr);
   border: none;
+  width: 80%;
+  justify-self: start;
 }
 
 .theme-form__show-preview-color {
@@ -34,26 +36,14 @@
   cursor: pointer;
 }
 
-.theme-form__submit-button {
+.theme-form__apply-changes-button {
   padding: 0.5rem;
   margin-bottom: 2rem;
   font-size: 1.2rem;
   border: 2px solid black;
   border-radius: 1.25rem;
-  background-color: #7cc795;
+  background-color: #25b836;
   cursor: pointer;
-  width: 60%;
-  justify-self: center;
-}
-
-.theme-form__edit-button {
-  padding: 0.5rem;
-  margin-bottom: 2rem;
-  font-size: 1.2rem;
-  border: 2px solid black;
-  border-radius: 1.25rem;
-  background-color: #c77cb7;
-  cursor: pointer;
-  width: 60%;
-  justify-self: center;
+  width: 80%;
+  justify-self: start;
 }
