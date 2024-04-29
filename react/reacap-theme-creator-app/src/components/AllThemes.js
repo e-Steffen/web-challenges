@@ -23,13 +23,6 @@ export default function AllThemes({
     setEditView(!editView);
   }
 
-  // const previewTheme = themes.map((theme) => theme.id === PreviewThemeId);
-
-  // const [PreviewThemeId, setPreviewThemeId] = useState(null);
-  // function toggleTryPreview() {
-  //   setPreviewThemeId(theme.id);
-  // }
-
   return (
     <article className="theme-overview">
       <button className="view-toggle" onClick={toggleView}>
@@ -56,34 +49,6 @@ export default function AllThemes({
             Looks ugly? Delete it!
           </button>
 
-          {/* {tryPreview ? (
-            <>
-              <TryPreviewPage
-              // onTryTheme={onTryTheme}
-              // {(tryTheme) => {
-              //   onTryTheme(tryTheme);
-              // }}
-              />
-
-              <button
-                className="view-toggle, theme-form__try-out-button"
-                onClick={onClose}
-              >
-                Close Preview
-              </button>
-            </>
-          ) : (
-            <button
-              type="button"
-              title="try-out-button"
-              className="theme-form__try-out-button"
-              onClick={onPreviewTheme}
-              // onClick={() => onTryTheme(theme.id)}
-            >
-              Try, try, try
-            </button>
-          )} */}
-
           {editView ? (
             <>
               <EditThemeForm
@@ -99,14 +64,6 @@ export default function AllThemes({
               >
                 Close Edit Mode
               </button>
-              {/* <button
-                type="submit"
-                title="edit Theme"
-                className="view-toggle, theme-form__edit-button"
-                onClick={() => onEditTheme(theme.id)}
-              >
-                Style refreshed? Apply changes!
-              </button> */}
             </>
           ) : (
             <button
