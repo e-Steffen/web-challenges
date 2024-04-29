@@ -1,4 +1,5 @@
 import "./NewThemeForm.css";
+import ColorPicker from "./ColorPicker";
 
 const exampleTheme = {
   name: "",
@@ -18,8 +19,7 @@ export default function NewThemeForm({
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    onAddTheme(data);
-    event.target.reset();
+    // onAddTheme(data);
 
     const newTheme = {
       id: data.id,
@@ -45,6 +45,7 @@ export default function NewThemeForm({
     };
 
     onAddTheme(newTheme);
+    event.target.reset();
   }
 
   return (
@@ -60,14 +61,8 @@ export default function NewThemeForm({
         placeholder="If you like to add it, name it!"
       />
       <fieldset className="theme-form__color-preview">
-        {initialData.colors.map((exampleColor) => (
-          <input
-            type="color"
-            key={exampleColor.role}
-            className="theme-form__show-preview-color"
-            name={exampleColor.role}
-            defaultValue={exampleColor.value}
-          />
+        {initialData.colors.map((color) => (
+          <ColorPicker key={color.role} color={color} />
         ))}
       </fieldset>
 

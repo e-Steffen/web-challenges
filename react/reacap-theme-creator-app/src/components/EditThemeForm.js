@@ -40,18 +40,18 @@ export default function EditThemeForm({
       <input
         className="theme-form__edit-name-inputfield"
         type="text"
-        required
         name="name"
+        defaultValue={initialData.name}
         placeholder="Do you like to change the name of your theme?"
       />
       <fieldset className="edit-theme-form__color-preview">
-        {initialData.colors.map((exampleColor) => (
+        {initialData.colors.map((color) => (
           <input
             type="color"
-            key={exampleColor.role}
+            key={color.role}
             className="theme-form__show-preview-color"
-            name={exampleColor.role}
-            defaultValue={exampleColor.value}
+            name={color.role}
+            defaultValue={color.value}
           />
         ))}
       </fieldset>
