@@ -1,35 +1,17 @@
-import { useEffect, useState } from "react";
 import "./ColorCard.css";
 
-export default function ColorCard({ colorExample }) {
-  const [colorFromApi, setColorFromApi] = useState("");
-  useEffect(() => {
-    async function loadColorFromApi() {
-      try {
-        const cleanHexValue = colorExample.value.replace("#", "");
-        const response = await fetch(
-          `https://www.thecolorapi.com/id?hex=${cleanHexValue}`
-        );
-        const data = await response.json();
-        setColorFromApi(data.name.value);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    loadColorFromApi();
-  }, [colorExample]);
-
+export default function ColorCard({ color }) {
   return (
     <article className="color-card">
       <div className="theme-info">
-        <p className="color-role">{colorExample.role}</p>
-        <p className="api-color-name">{colorFromApi}</p>
-        <p className="color-hex">{colorExample.value}</p>
+        <p className="color-role">{color.role}</p>
+        <p className="api-color-name">{color.name}</p>
+        <p className="color-hex">{color.value}</p>
       </div>
 
       <div
         className="show-color"
-        style={{ backgroundColor: colorExample.value }}
+        style={{ backgroundColor: color.value }}
       ></div>
     </article>
   );

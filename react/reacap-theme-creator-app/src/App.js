@@ -3,8 +3,8 @@ import AllThemes from "./components/AllThemes";
 import { themes } from "./db";
 import NewThemeForm from "./components/NewThemeForm";
 import useLocalStorageState from "use-local-storage-state";
-import { v4 as uuid } from "uuid";
 import { useState } from "react";
+import { v4 as uuid } from "uuid";
 import TryPreviewPage from "./components/TryPreviewPage";
 
 const initialThemes = themes;
@@ -13,16 +13,6 @@ export default function App() {
   const [themes, setThemes] = useLocalStorageState("themes", {
     defaultValue: initialThemes,
   });
-
-  async function handleAddTheme(newTheme) {
-    setThemes([
-      ...themes,
-      {
-        id: uuid(),
-        ...newTheme,
-      },
-    ]);
-  }
 
   async function loadColorNameFromApi(hex) {
     const cleanHexValue = hex.replace("#", "");
@@ -33,25 +23,36 @@ export default function App() {
     return data.name.value;
   }
 
-  async function handleEditTheme(themeUpdate, id) {
-    const colorNamePromises = themeUpdate.colors.map(async (color) => {
-      const name = await loadColorNameFromApi(color.value);
-
+  async function handleAddTheme(newTheme) {
+    const colorNamePromises = newTheme.colors.map(async (color) => {
+      const colorNameFromApi = await loadColorNameFromApi(color.value);
       return {
         ...color,
-        name,
+        colorNameFromApi,
       };
     });
 
     const colorsWithNames = await Promise.all(colorNamePromises);
+    const newThemesId = {
+      id: uuid(),
+      name: newTheme.name,
+      colors: colorsWithNames,
+    };
 
-    //   setThemes([
-    //     ...themes,
-    //     {
-    //       id: uuid(),
-    //       ...themeUpdate,
-    //     },
-    //   ]);
+    setThemes([newThemesId, ...themes]);
+  }
+
+  async function handleEditTheme(themeUpdate, id) {
+    const colorNamePromises = themeUpdate.colors.map(async (color) => {
+      const colorNameFromApi = await loadColorNameFromApi(color.value);
+
+      return {
+        ...color,
+        colorNameFromApi,
+      };
+    });
+
+    const colorsWithNames = await Promise.all(colorNamePromises);
 
     setThemes(
       themes.map((theme) => {
@@ -71,10 +72,6 @@ export default function App() {
   function handleDeleteTheme(id) {
     setThemes(themes.filter((theme) => theme.id !== id));
   }
-
-  // async function handleTryTheme(id) {
-  //   setThemes(themes.filter((theme) => theme.id === id));
-  // }
 
   const [PreviewThemeId, setPreviewThemeId] = useState(null);
   const previewTheme = themes.find((theme) => theme.id === PreviewThemeId);
