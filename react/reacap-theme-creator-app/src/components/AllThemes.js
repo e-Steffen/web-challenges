@@ -54,7 +54,8 @@ export default function AllThemes({
               <EditThemeForm
                 onApplyEditTheme={(themeUpdate) => {
                   onEditTheme(themeUpdate);
-                }}
+                  toggleEditView();
+                }} // Funktion, die Funktion bzw. funktionen aufruft
                 initialData={theme}
               />
 

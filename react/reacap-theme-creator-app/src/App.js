@@ -23,8 +23,8 @@ export default function App() {
     return data.name.value;
   }
 
-  async function handleAddTheme(newTheme) {
-    const colorNamePromises = newTheme.colors.map(async (color) => {
+  async function handleAddTheme(themeUpdate) {
+    const colorNamePromises = themeUpdate.colors.map(async (color) => {
       const colorNameFromApi = await loadColorNameFromApi(color.value);
       return {
         ...color,
@@ -35,7 +35,7 @@ export default function App() {
     const colorsWithNames = await Promise.all(colorNamePromises);
     const newThemesId = {
       id: uuid(),
-      name: newTheme.name,
+      name: themeUpdate.name,
       colors: colorsWithNames,
     };
 
