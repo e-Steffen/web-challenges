@@ -1,31 +1,37 @@
-import { introduction } from "@/lib/data";
 import Link from "next/link";
+import { volumes } from "@/lib/data";
+import { introduction } from "@/lib/data";
+import Head from "next/head";
+import { useRouter } from "next/router";
 
+console.log(volumes[0].title);
 export default function Overview() {
+  const router = useRouter();
+  function getRandomVolume(array) {
+    const randomVolume = array[Math.floor(Math.random() * array.length)];
+    router.push(`/volumes/${randomVolume.slug}`);
+  }
+
   return (
     <>
+      <Head>
+        <title>Lord of the Rings</title>
+      </Head>
       <h1>Lord of the Rings</h1>
       <p>{introduction}</p>
 
       <h2>All Volumes</h2>
       <ul>
-        <li>
-          {" "}
-          <Link href="/volumes/the-fellowship-of-the-ring">
-            the-fellowship-of-the-ring
-          </Link>
-        </li>
-        <li>
-          {" "}
-          <Link href="/volumes/the-two-towers">the-two-towers</Link>
-        </li>
-        <li>
-          {" "}
-          <Link href="/volumes/the-return-of-the-king">
-            the-return-of-the-king
-          </Link>
-        </li>
+        {volumes.map((volume) => (
+          <li key={volume.slug}>
+            <Link href={`/volumes/${volume.slug}`}>{volume.title}</Link>
+          </li>
+        ))}
       </ul>
+      <p></p>
+      <button type="button" onClick={() => getRandomVolume(volumes)}>
+        Random choice
+      </button>
     </>
   );
 }

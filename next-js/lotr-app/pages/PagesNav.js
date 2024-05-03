@@ -1,28 +1,38 @@
 import { volumes } from "@/lib/data";
+import { useRouter } from "next/router";
 import Link from "next/link";
 
-export default function PagesNav({ currentPage }) {
-  let content;
+export default function PagesNav() {
+  const router = useRouter();
 
-  if (currentPage === "the-two-towers") {
-    content = (
-      <>
-        <Link href="/volumes/the-fellowship-of-the-ring">
-          ↢ previous volume
-        </Link>
-        <p></p>
-        <Link href="/volumes/the-return-of-the-king">next volume ↣ </Link>
-      </>
-    );
-  } else if (currentPage === "the-fellowship-of-the-ring") {
-    content = (
-      <>
-        <Link href="/volumes/the-two-towers">next volume ↣ </Link>
-      </>
-    );
-  } else {
-    content = <Link href="/volumes/the-two-towers"> ↢ previous volume</Link>;
+  const volumeIndex = volumes.findIndex(
+    ({ slug }) => slug === router.query.slug
+  );
+
+  const currentVolume = volumes[volumeIndex];
+  const nextVolume = volumes[volumeIndex + 1];
+  const previousVolume = volumes[volumeIndex - 1];
+
+  if (!currentVolume) {
+    return null;
   }
 
-  return <div key={currentPage}>{content}</div>;
+  return (
+    <>
+      <div>
+        {previousVolume ? (
+          <Link href={`/volumes/${previousVolume.slug}`}>
+            ← Previous Volume: {previousVolume.title}
+          </Link>
+        ) : null}
+      </div>
+      <div>
+        {nextVolume ? (
+          <Link href={`/volumes/${nextVolume.slug}`}>
+            Next Volume: {nextVolume.title} →
+          </Link>
+        ) : null}
+      </div>
+    </>
+  );
 }
