@@ -9,7 +9,9 @@ export default function Volume() {
   const router = useRouter();
   //   console.log(router);
 
-  const { slug } = router.query;
+  const { slug } = router.query; /* Der Name des Abfrageparameters entspricht 
+  immer dem Namen der Datei/des Verzeichnisses: [slug].js → const { slug } = router.query; */
+
   const currentVolume = volumes.find((volume) => volume.slug === slug);
 
   if (!currentVolume) {
@@ -32,7 +34,7 @@ export default function Volume() {
       <h1>{title}</h1>
       <p>{description}</p>
       <ul>
-        {currentVolume.books.map((book) => (
+        {books.map((book) => (
           <li key={book.ordinal}>
             {book.title}, {book.ordinal}
           </li>
