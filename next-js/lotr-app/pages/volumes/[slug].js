@@ -1,7 +1,7 @@
 import { volumes } from "@/lib/data";
 import Link from "next/link";
 import Image from "next/image";
-import PagesNav from "../PagesNav";
+import PagesNav from "../../components/PagesNav";
 import { useRouter } from "next/router";
 import Head from "next/head";
 
@@ -24,6 +24,8 @@ export default function Volume() {
     const randomVolume = array[Math.floor(Math.random() * array.length)];
     router.push(`/volumes/${randomVolume.slug}`);
   }
+
+
 
   return (
     <section>

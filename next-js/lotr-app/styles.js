@@ -1,4 +1,7 @@
 import { createGlobalStyle } from "styled-components";
+import { Great_Vibes } from "next/font/google";
+
+const GreatVibes = Great_Vibes({ subsets: ["latin"], weight: ["400"]});
 
 export default createGlobalStyle`
   *,
@@ -9,6 +12,6 @@ export default createGlobalStyle`
 
   body {
     margin: 0;
-    font-family: system-ui;
+    font-family: ${GreatVibes.style.fontFamily};
   }
 `;

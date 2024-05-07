@@ -28,10 +28,13 @@ export default function Overview() {
           </li>
         ))}
       </ul>
-      <p></p>
+
       <button type="button" onClick={() => getRandomVolume(volumes)}>
         Random choice
       </button>
+      <p>
+        <Link href={`/AL`}>📚 personal AL-Page 🙇‍♂️</Link>
+      </p>
     </>
   );
 }
