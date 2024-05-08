@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const AlignItems = styled.div`
 display: flex; 
-justify-items: center;
+justify-content: space-around;
 `; 
 
 export default function HomePage() {
