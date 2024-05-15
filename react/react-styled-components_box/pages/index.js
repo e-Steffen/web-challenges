@@ -3,9 +3,9 @@ import BoxWithStyledComponents from "@/components/BoxWithClassName/BoxWithStyled
 import styled from "styled-components";
 
 const AlignItems = styled.div`
-display: flex; 
-justify-content: space-around;
-`; 
+  display: flex;
+  justify-content: space-around;
+`;
 
 export default function HomePage() {
   return (
@@ -17,4 +17,3 @@ export default function HomePage() {
     </AlignItems>
   );
 }
-
