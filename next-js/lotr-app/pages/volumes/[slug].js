@@ -4,6 +4,7 @@ import Image from "next/image";
 import PagesNav from "../../components/PagesNav";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import styled, { css } from "styled-components";
 
 export default function Volume() {
   const router = useRouter();
@@ -18,17 +19,28 @@ export default function Volume() {
     return null;
   }
 
-  const { title, description, cover, books } = currentVolume;
+  const { title, description, cover, books, color } = currentVolume;
 
   function getRandomVolume(array) {
     const randomVolume = array[Math.floor(Math.random() * array.length)];
     router.push(`/volumes/${randomVolume.slug}`);
+    console.log(color);
   }
 
+  const StyledPage = styled.body`
+    background-color: ${color};
+  `;
 
+  const MegaButton = styled.button`
+    ${({ $needFat }) => {
+      if ($needFat === "fat") {
+        return `border: 10px solid orange`;
+      } else {return `border: none`}
+    }}
+  `;
 
   return (
-    <section>
+    <StyledPage>
       <Head>
         <title>{title}</title>
       </Head>
@@ -50,11 +62,15 @@ export default function Volume() {
         alt="a picture connencted to the lord of rings"
       />
       <p></p>
-      <button type="button" onClick={() => getRandomVolume(volumes)}>
+      <MegaButton
+        $needFat="fat"
+        type="button"
+        onClick={() => getRandomVolume(volumes)}
+      >
         Random choice
-      </button>
+      </MegaButton>
 
       <PagesNav />
-    </section>
+    </StyledPage>
   );
 }
