@@ -13,7 +13,12 @@ export default function ISSTracker() {
   //   latitude: 0,
   // });
 
-  const { data: coords, error, isLoading, mutate } = useSWR(URL, fetcher);
+  const {
+    data: coords,
+    error,
+    isLoading,
+    mutate,
+  } = useSWR(URL, fetcher, { refreshInterval: 5000 });
 
   // async function getISSCoords() {
   //   try {
@@ -46,16 +51,14 @@ export default function ISSTracker() {
   }
 
   return (
-    <SWRConfig value={{ fetcher, refreshInterval: 5000 }}>
-      <main>
-        <Map longitude={coords.longitude} latitude={coords.latitude} />
-        <Controls
-          longitude={coords.longitude}
-          latitude={coords.latitude}
-          onRefresh={() => mutate()}
-          // onRefresh={getISSCoords}
-        />
-      </main>
-    </SWRConfig>
+    <main>
+      <Map longitude={coords.longitude} latitude={coords.latitude} />
+      <Controls
+        longitude={coords.longitude}
+        latitude={coords.latitude}
+        onRefresh={() => mutate()}
+        // onRefresh={getISSCoords}
+      />
+    </main>
   );
 }
