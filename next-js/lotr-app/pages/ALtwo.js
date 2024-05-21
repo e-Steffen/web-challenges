@@ -13,11 +13,17 @@ export default function BadJoke() {
     `https://example-apis.vercel.app/api/bad-jokes/${jokeId}`,
     fetcher
   );
+
+  if (isLoading) {
+    return <h1>Searching for bad joke</h1>;
+  }
+
   if (error) {
     return <h1>No more jokes: an error occurred.</h1>;
   }
-  if (isLoading) {
-    return <h1>Searching for bad joke</h1>;
+
+  if (!joke) {
+    return <h1>No more jokes: an error occurred.</h1>;
   }
 
   function getRandomJokeId() {
