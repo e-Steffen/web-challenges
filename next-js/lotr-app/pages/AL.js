@@ -6,6 +6,8 @@ import { useRouter } from "next/router";
 import { volumes } from "@/lib/data";
 import Head from "next/head";
 import styled from "styled-components";
+import useSWR from "swr";
+import { useState } from "react";
 
 export default function AllesUeben() {
   const router = useRouter();
@@ -74,6 +76,7 @@ export default function AllesUeben() {
         <title>Exercise</title>
       </Head>
       {hello}
+
       <ul>
         <li>
           <StyledLink href="http://www.github.com">Link A</StyledLink>

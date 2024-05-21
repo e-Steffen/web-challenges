@@ -40,12 +40,14 @@ export default function Overview() {
       <button type="button" onClick={() => getRandomVolume(volumes)}>
         Random choice
       </button>
+
+      <CountUp count={count} onClickCount={handleCount} />
+
       <p>
         <Link href={`/AL`}>📚 personal AL-Page 🙇‍♂️</Link>
+        <br></br>
+        <Link href={`/ALtwo`}>🃏 SECOND AL-Page with Jokes 😁</Link>
       </p>
-      
-        <CountUp count={count} onClickCount={handleCount} />
-      
     </>
   );
 }
