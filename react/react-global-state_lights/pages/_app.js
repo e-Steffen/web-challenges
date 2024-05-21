@@ -1,8 +1,7 @@
 import GlobalStyle from "../styles";
 import Layout from "../components/Layout";
 import { useState } from "react";
-// import Light from "@/components/Light";
-// import { Name, State } from "./Light.styled";
+import useLightControlStore from "@/globalStore";
 
 export default function App({ Component, pageProps }) {
   const [lights, setLights] = useState([
@@ -16,6 +15,14 @@ export default function App({ Component, pageProps }) {
     { id: "8", name: "Office", isOn: false },
   ]);
 
+  function handleAllLightsOff() {
+    setLights(lights.map((light) => ({ ...light, isOn: false })));
+  }
+
+  function handleAllLightsOn() {
+    setLights(lights.map((light) => ({ ...light, isOn: true })));
+  }
+
   function handleToggle(id) {
     setLights(
       lights.map((light) =>
@@ -24,10 +31,18 @@ export default function App({ Component, pageProps }) {
     );
   }
 
+  const { checkAllOff } = useLightControlStore();
+
   return (
-    <Layout>
+    <Layout isDimmed={checkAllOff(lights)}>
       <GlobalStyle />
-      <Component {...pageProps} lights={lights} onToggle={handleToggle} />
+      <Component
+        {...pageProps}
+        lights={lights}
+        onToggle={handleToggle}
+        onAllLightsOn={handleAllLightsOn}
+        onAllLightsOff={handleAllLightsOff}
+      />
     </Layout>
   );
 }
