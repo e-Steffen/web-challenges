@@ -23,7 +23,8 @@ export default createGlobalStyle`
 
   /* Font styles */
   --font-family: ${LoraFont.style.fontFamily};
-  color: lightgray; 
+  --font-family-great: ${GreatVibes.style.fontFamily};
+  color: darkgray; 
   /*
     use like:
     font: var(--font-body);
@@ -34,6 +35,7 @@ export default createGlobalStyle`
   --font-caption: normal 500 12px/15px var(--font-family);
   --font-caption--italic: italic 400 12px/15px var(--font-family);
   --font-body: normal 400 16px/20px var(--font-family);
+  --font-p: normal 400 32px/40px var(--font-family-great)
 
   /* Effect styles */
   /*

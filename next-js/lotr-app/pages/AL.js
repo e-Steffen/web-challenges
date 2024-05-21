@@ -135,3 +135,30 @@ const StyledLink = styled(Link)`
     color: darkgoldenrod;
   }
 `;
+
+function CountUp({ count, onClickCount }) {
+  return (
+    <>
+      <StyledButton type="button" onClick={onClickCount}>
+        immer 7 mehr als vorher!!
+      </StyledButton>
+      <StyledPinAL>Mache ich: {count}</StyledPinAL>
+    </>
+  );
+}
+
+export { CountUp };
+
+const StyledButton = styled.button`
+  color: grey;
+  background-color: black;
+  font-size: 3rem;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const StyledPinAL = styled.p`
+  font-size: 1.8rem;
+  color: black;
+`;

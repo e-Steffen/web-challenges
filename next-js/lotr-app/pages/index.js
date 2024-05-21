@@ -3,6 +3,8 @@ import { volumes } from "@/lib/data";
 import { introduction } from "@/lib/data";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { useState } from "react";
+import { CountUp } from "./AL";
 
 console.log(volumes[0].title);
 export default function Overview() {
@@ -10,6 +12,12 @@ export default function Overview() {
   function getRandomVolume(array) {
     const randomVolume = array[Math.floor(Math.random() * array.length)];
     router.push(`/volumes/${randomVolume.slug}`);
+  }
+
+  const [count, setCount] = useState(222);
+
+  function handleCount() {
+    setCount(count + 7);
   }
 
   return (
@@ -35,6 +43,9 @@ export default function Overview() {
       <p>
         <Link href={`/AL`}>📚 personal AL-Page 🙇‍♂️</Link>
       </p>
+      
+        <CountUp count={count} onClickCount={handleCount} />
+      
     </>
   );
 }
