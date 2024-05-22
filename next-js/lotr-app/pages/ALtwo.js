@@ -1,10 +1,18 @@
 import { useState } from "react";
 import useSWR from "swr";
+import { useRouter } from "next/router";
 
 const fetcher = (...url) => fetch(...url).then((res) => res.json());
 
 export default function BadJoke() {
   const [jokeId, setJokeId] = useState(0);
+
+  const router = useRouter();
+
+  function handleClick() {
+    router.push("./");
+  }
+
   const {
     data: joke,
     error,
@@ -37,6 +45,9 @@ export default function BadJoke() {
         Get a random joke!
       </button>
       <h2>{joke.joke}</h2>
+      <button type="button" onClick={handleClick}>
+        push me away from here
+      </button>
     </>
   );
 }
