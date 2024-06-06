@@ -31,9 +31,9 @@ export default function ReviewForm() {
         Title:
         <input type="text" id="title" name="title" />
       </StyledLabel>
-      <StyledLabel htmlFor="reviewText">
+      <StyledLabel htmlFor="text">
         Your Review:
-        <input type="text" id="reviewText" name="reviewText" />
+        <input type="text" id="text" name="text" />
       </StyledLabel>
       <StyledLabel htmlFor="rating">
         Rating:
