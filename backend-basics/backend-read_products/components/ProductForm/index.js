@@ -7,7 +7,6 @@ export default function ProductForm() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-
     const formData = new FormData(event.target);
     const productData = Object.fromEntries(formData);
 
