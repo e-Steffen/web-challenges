@@ -2,13 +2,44 @@ import useSWR from "swr";
 import { useRouter } from "next/router";
 import { ProductCard } from "./Product.styled";
 import { StyledLink } from "../Link/Link.styled";
+import { StyledButton } from "../Button/Button.styled";
+import { useState } from "react";
+import ProductForm from "../ProductForm";
 
 export default function Product() {
+  const [isUpdateMode, setIsUpdateMode] = useState(false);
   const router = useRouter();
   const { id } = router.query;
 
-  const { data, isLoading } = useSWR(`/api/products/${id}`);
+  const { data, isLoading, mutate } = useSWR(`/api/products/${id}`);
   console.log(data);
+
+  async function handleEditProduct(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const updatedProductData = Object.fromEntries(formData);
+
+    const response = await fetch(`api/products/${id}`, {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(updatedProductData),
+    });
+
+    if (response.ok) {
+      mutate();
+      router.push("/");
+    }
+  }
+
+  async function handleDeleteProduct(event) {
+    const response = await fetch(`api/products/${id}`, {
+      method: "DELETE",
+    });
+
+    if (response.ok) {
+      router.push("/");
+    } else return response.status(404).json({ status: response.status });
+  }
 
   if (isLoading) {
     return <h1>Loading...</h1>;
@@ -25,6 +56,7 @@ export default function Product() {
       <p>
         Price: {data.price} {data.currency}
       </p>
+
       <aside>
         <h4>some buyers feelings about this fish</h4>
         {data.reviews && data.reviews.length > 0 ? (
@@ -40,7 +72,32 @@ export default function Product() {
           <li>no feelings so far</li>
         )}
       </aside>
-      <br></br>
+
+      {isUpdateMode && (
+        <ProductForm
+          onSubmit={handleEditProduct}
+          value={data.value}
+          isUpdateMode={true}
+        />
+      )}
+
+      <StyledButton
+        type="button"
+        onClick={() => {
+          setIsUpdateMode(!isUpdateMode);
+        }}
+      >
+        Need a Fish-Update?
+      </StyledButton>
+
+      <StyledButton
+        type="button"
+        onClick={() => {
+          handleDeleteProduct(id);
+        }}
+      >
+        Swim away, ugly fish!
+      </StyledButton>
       <StyledLink href="/">Back to all</StyledLink>
     </ProductCard>
   );
