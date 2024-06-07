@@ -12,7 +12,6 @@ export default function Product() {
   const { id } = router.query;
 
   const { data, isLoading, mutate } = useSWR(`/api/products/${id}`);
-  console.log(data);
 
   async function handleEditProduct(event) {
     event.preventDefault();
@@ -31,7 +30,7 @@ export default function Product() {
     }
   }
 
-  async function handleDeleteProduct(event) {
+  async function handleDeleteProduct() {
     const response = await fetch(`api/products/${id}`, {
       method: "DELETE",
     });
@@ -76,7 +75,7 @@ export default function Product() {
       {isUpdateMode && (
         <ProductForm
           onSubmit={handleEditProduct}
-          value={data.value}
+          value={data}
           isUpdateMode={true}
         />
       )}
@@ -93,7 +92,7 @@ export default function Product() {
       <StyledButton
         type="button"
         onClick={() => {
-          handleDeleteProduct(id);
+          handleDeleteProduct();
         }}
       >
         Swim away, ugly fish!
