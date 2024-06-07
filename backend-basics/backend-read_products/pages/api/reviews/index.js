@@ -11,6 +11,7 @@ export default async function handler(request, response) {
       // new try add Reviews:
       const reviewData = request.body;
       await Review.create(reviewData);
+      console.log("you add a new review!");
       // end try
       response
         .status(201)
