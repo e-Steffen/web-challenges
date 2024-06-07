@@ -2,6 +2,9 @@ import useSWR from "swr";
 import { useRouter } from "next/router";
 import { ProductCard } from "./Product.styled";
 import { StyledLink } from "../Link/Link.styled";
+
+import ReviewForm from "../ReviewForm";
+
 import { StyledButton } from "../Button/Button.styled";
 import { useState } from "react";
 import ProductForm from "../ProductForm";
@@ -49,6 +52,7 @@ export default function Product() {
   }
 
   return (
+
     <ProductCard>
       <h2>{data.name}</h2>
       <p>Description: {data.description}</p>
@@ -99,5 +103,7 @@ export default function Product() {
       </StyledButton>
       <StyledLink href="/">Back to all</StyledLink>
     </ProductCard>
+<ReviewForm />
+
   );
 }
