@@ -24,7 +24,7 @@ so that `<i can chosse >` <br>
 
 ## Tasks
 
-[] create a branch and switch to it
+- [ ] create a branch and switch to it
 - prepare all needed setting for a react/next-js project (if available you can use a preset)
 - create a Frontend-Homepage
 - create a App-Title "Movie-App" as a component (reuseable for further pages)
