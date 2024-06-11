@@ -4,9 +4,9 @@ Movie App Homepage (landing page)
 
 ## Value Proposition
 
-As a `<User/Movie-Lover >` <br>
-I want to `<have a qucik overview about the available movies in my libary, including options for more details about the movies>` <br>
-so that `<i can chosse >` <br>
+As a `User/Movie-Lover` <br>
+I want to `have a qucik overview about the available movies in my libary, including options for more details about the movies` <br>
+so that `i can chosse` <br>
 
 ## Description
 
