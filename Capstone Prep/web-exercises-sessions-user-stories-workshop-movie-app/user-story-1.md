@@ -1,6 +1,6 @@
 # Title
 
-Movie App
+Movie App Homepage (landing page)
 
 ## Value Proposition
 
@@ -28,6 +28,7 @@ so that `<i can chosse >` <br>
 - prepare all needed setting for a react/next-js project (if available you can use a preset)
 - create a Frontend-Homepage
 - create a App-Title "Movie-App" as a component (reuseable for further pages)
+- the App-Title should be visable at all times, also if page is scrolled
 - create components for the tile and tiles including the corresponding name of the movie
 - take care of making the app responsible (different screen-sizes)
 - (if not definied in another ticket) prepare and include styling, reuseable for further App-Parts
