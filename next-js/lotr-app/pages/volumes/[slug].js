@@ -5,6 +5,7 @@ import PagesNav from "../../components/PagesNav";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import styled, { css } from "styled-components";
+import StyledComponentX from "@/components/StyledComponentX";
 
 export default function Volume() {
   const router = useRouter();
@@ -35,7 +36,9 @@ export default function Volume() {
     ${({ $needFat }) => {
       if ($needFat === "fat") {
         return `border: 10px solid orange`;
-      } else {return `border: none`}
+      } else {
+        return `border: none`;
+      }
     }}
   `;
 
@@ -69,7 +72,7 @@ export default function Volume() {
       >
         Random choice
       </MegaButton>
-
+      <StyledComponentX cover={cover} alt={title} />
       <PagesNav />
     </StyledPage>
   );
